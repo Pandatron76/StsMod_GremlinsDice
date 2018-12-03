@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.pandatron76</groupId>
+    <artifactId>GremlinsDice</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Pandatron76_StSMod.GremlinsDiceMod</name>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <modWorkingPath>${basedir}</modWorkingPath>
+        <modJarsPath>${basedir}/mods</modJarsPath>
+        <desktopJarPath>${modWorkingPath}/desktop-1.0.jar</desktopJarPath>
+        <modSpireJarPath>${modWorkingPath}/ModTheSpire.jar</modSpireJarPath>
+        <baseModJarPath>${modJarsPath}/BaseMod.jar</baseModJarPath>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.megacrit.cardcrawl</groupId>
+            <artifactId>slaythespire</artifactId>
+            <version>047</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../../lib/desktop-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl</groupId>
+            <artifactId>ModTheSpire</artifactId>
+            <version>3.5.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../../lib/ModTheSpire.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl</groupId>
+            <artifactId>BaseMod</artifactId>
+            <version>5.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../../lib/BaseMod.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>Pandatron76_StSMod.GremlinsDiceMod</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <copy file="target/Pandatron76_StSMod.GremlinsDiceMod.jar" tofile="../../pom_outputs/Pandatron76_StSMod.GremlinsDiceMod"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+</project>
