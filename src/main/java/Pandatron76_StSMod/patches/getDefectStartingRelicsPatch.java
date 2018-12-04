@@ -18,7 +18,8 @@ public class getDefectStartingRelicsPatch {
         __result.add(GremlinsDice.ID);
         //Remove the 'Golden Marble' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
-        //Remove the 'Burning Blood' from the relic tracker
+
+        //Remove the 'Cracked Core' from the relic tracker
         UnlockTracker.markRelicAsSeen("Cracked Core");
         //Return the relics that Ironclad will start with
         return __result;

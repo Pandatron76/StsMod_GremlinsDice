@@ -67,7 +67,6 @@ public class GremlinsDiceMod implements
     @Override
     public void receivePostInitialize() {
 
-        logger.info("THE HOBBITS ARE COMING TO IZANGUARD TO IZANGUARD!!!! HOBBBITS!!!1122334455");
         Texture badgeTexture = new Texture(makePath(BADGE_IMG));
         ModPanel settingsPanel = new ModPanel();
 
@@ -94,8 +93,6 @@ public class GremlinsDiceMod implements
      */
     public static final String makePath(String resource) {
         String result = ASSETS_FOLDER  + resource;
-        logger.info("THE HOBBITS ARE COMING TO IZANGUARD TO IZANGUARD!!!! HOBBBITS!!!");
-        logger.info(result);
 
         if (! hasExtension(resource)) {
             result += ".png";

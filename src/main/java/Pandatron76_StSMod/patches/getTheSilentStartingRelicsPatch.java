@@ -18,7 +18,8 @@ public class getTheSilentStartingRelicsPatch {
         __result.add(GremlinsDice.ID);
         //Remove the 'Golden Marble' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
-        //Remove the 'Burning Blood' from the relic tracker
+
+        //Remove the 'Ring of the Snake' from the relic tracker
         UnlockTracker.markRelicAsSeen("Ring of the Snake");
         //Return the relics that Ironclad will start with
         return __result;

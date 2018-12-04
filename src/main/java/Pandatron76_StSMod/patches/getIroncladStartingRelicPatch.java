@@ -18,6 +18,7 @@ public class getIroncladStartingRelicPatch {
         __result.add(GremlinsDice.ID);
         //Remove the 'Golden Marble' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
+
         //Remove the 'Burning Blood' from the relic tracker
         UnlockTracker.markRelicAsSeen("Burning Blood");
         //Return the relics that Ironclad will start with
