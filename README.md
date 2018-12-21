@@ -5,14 +5,13 @@ the Gremlin's Dice which at the end of each combat provides the player with a be
 This was sort of an after thought to the mod I wrote before this
 https://github.com/Pandatron76/StsMod_Clawfect
 
-At the end of each combat a die is cast.
-
-On a 1, the player gains 5 max hp.  
-On a 2, the player loses 5 max hp.  
-On a 3, the player gains 15 gold.  
-On a 4, the player loses 15 gold.  
-On a 5, the player upgrades a random card in their deck.  
-Last but not least on a 6, the player obtains a curse.
+At the end of each combat a die is cast.  
+&nbsp;On a 1, the player gains 5 max hp.  
+&nbsp;On a 2, the player loses 5 max hp.  
+&nbsp;On a 3, the player gains 15 gold.  
+&nbsp;On a 4, the player loses 15 gold.  
+&nbsp;On a 5, the player upgrades a random card in their deck.  
+&nbsp;Last but not least on a 6, the player obtains a curse.
 
 ## Getting Started
 1. Make sure to have the latest version of...  
