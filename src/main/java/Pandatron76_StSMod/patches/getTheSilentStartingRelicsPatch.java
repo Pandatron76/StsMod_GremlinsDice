@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class getTheSilentStartingRelicsPatch {
 
     public static ArrayList<String> Postfix(ArrayList<String> __result, TheSilent __instance) {
-        //Clear out the original relics
+        // Clear out the original relics
         __result.clear();
-        //Add the custom relic 'Golden Marble' to the starting relics
+        // Add the custom relic 'Gremlin's Dice' to the starting relics
         __result.add(GremlinsDice.ID);
-        //Remove the 'Golden Marble' from the relic tracker
+        // Remove the 'Gremlin's DIce' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
 
         //Remove the 'Ring of the Snake' from the relic tracker

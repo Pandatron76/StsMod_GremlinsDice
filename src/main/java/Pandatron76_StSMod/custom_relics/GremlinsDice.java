@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.megacrit.cardcrawl.core.AbstractCreature.TEXT;
-
 public class GremlinsDice extends CustomRelic {
 
     public static final String ID = "GremlinsDice";
@@ -43,28 +41,47 @@ public class GremlinsDice extends CustomRelic {
         Random rand = new Random();
         int rolld6 = rand.nextInt(6) + 1;
 
+        // On a 1, increase the players max hp by 5 using the same visual cue as the red card 'Feed'
         if (rolld6 == 1) {
             if (p.currentHealth > 0) {
                 p.increaseMaxHp(MAX_HP_SHIFT, true);
             }
         }
+        // On a 2, decrease the players max hp by 5
         else if (rolld6 == 2) {
             if (p.currentHealth > 0) {
                 p.decreaseMaxHealth(MAX_HP_SHIFT);
                 AbstractDungeon.effectsQueue.add(
-                        new TextAboveCreatureEffect(this.hb.cX - 1, this.hb.cY, TEXT[2] +
-                                Integer.toString(2), Settings.RED_TEXT_COLOR));
+                        new TextAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY, "Max HP-" +
+                                Integer.toString(MAX_HP_SHIFT), Settings.RED_TEXT_COLOR));
+                p.healthBarUpdatedEvent();
             }
         }
+
+        //On a 3, provide the player with 15, gold
         else if (rolld6 == 3) {
-            p.gainGold(5);
+            p.gainGold(GOLD_SHIFT);
             AbstractDungeon.effectList.add(new RainingGoldEffect(GOLD_SHIFT));
+
+            // Provide a visual indication to let the player know they are gaining gold.
+            AbstractDungeon.effectsQueue.add(
+                    new TextAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY, "Gold+" +
+                            Integer.toString(GOLD_SHIFT), Settings.GREEN_TEXT_COLOR));
         }
+
+        //On a 4, take 15 gold away from the player
         else if (rolld6 == 4) {
             if (p.gold > 0) {
                 p.loseGold(GOLD_SHIFT);
+
+                // Provide a visual indication to let the player know they are gaining gold.
+                AbstractDungeon.effectsQueue.add(
+                        new TextAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY, "Gold-" +
+                                Integer.toString(GOLD_SHIFT), Settings.RED_TEXT_COLOR));
             }
         }
+
+        // On a 5 give the player a randomly upgraded card
         else if (rolld6 == 5) {
 
             ArrayList<AbstractCard> upgradableCards = new ArrayList();
@@ -83,23 +100,33 @@ public class GremlinsDice extends CustomRelic {
                     ((List)cardMetrics).add(((AbstractCard)upgradableCards.get(0)).cardID);
                     AbstractDungeon.player.bottledCardUpgradeCheck((AbstractCard)upgradableCards.get(0));
                     AbstractDungeon.effectList.add(
-                            new ShowCardBrieflyEffect(((AbstractCard)upgradableCards.get(0)).makeStatEquivalentCopy()));
+                            new ShowCardBrieflyEffect(
+                                    ((AbstractCard)upgradableCards.get(0)).makeStatEquivalentCopy()));
                 }
                 else
                 {
                     ((AbstractCard)upgradableCards.get(0)).upgrade();
                     ((List)cardMetrics).add(((AbstractCard)upgradableCards.get(0)).cardID);
                     AbstractDungeon.player.bottledCardUpgradeCheck((AbstractCard)upgradableCards.get(0));
-                    AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(
 
-                            ((AbstractCard)upgradableCards.get(0)).makeStatEquivalentCopy(),
-                            Settings.WIDTH / 2.0F - 190.0F * Settings.scale, Settings.HEIGHT / 2.0F));
+                    // Position the upgrade card effect in the upper right hand corner of the screen
+                    AbstractDungeon.effectList.add(
+                            new ShowCardBrieflyEffect(
+                                    ((AbstractCard)upgradableCards.get(0)).makeStatEquivalentCopy(),
+                                    Settings.WIDTH / 2.0F + 650.0F * Settings.scale,
+                                    Settings.HEIGHT / 2.0F + 150.0F * Settings.scale));
                 }
             }
         }
+
+        // On a 6 (or any other condition) give the player a random curse
         else {
             AbstractCard curse = AbstractDungeon.returnRandomCurse();
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+
+            // Position the upgrade card effect in the upper left hand corner of the screen
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse,
+                    Settings.WIDTH / 2.0F + 650.0F * Settings.scale,
+                    Settings.HEIGHT / 2.0F + 150.0F * Settings.scale));
         }
     }
 

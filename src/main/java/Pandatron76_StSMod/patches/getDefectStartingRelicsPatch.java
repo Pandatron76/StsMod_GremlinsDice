@@ -12,16 +12,16 @@ import java.util.ArrayList;
 public class getDefectStartingRelicsPatch {
 
     public static ArrayList<String> Postfix(ArrayList<String> __result, Defect __instance) {
-        //Clear out the original relics
+        // Clear out the original relics
         __result.clear();
-        //Add the custom relic 'Golden Marble' to the starting relics
+        // Add the custom relic 'Gremlin's Dice' to the starting relics
         __result.add(GremlinsDice.ID);
-        //Remove the 'Golden Marble' from the relic tracker
+        // Remove the 'Gremlin's DIce' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
 
-        //Remove the 'Cracked Core' from the relic tracker
+        // Remove the 'Cracked Core' from the relic tracker
         UnlockTracker.markRelicAsSeen("Cracked Core");
-        //Return the relics that Ironclad will start with
+        // Return the relics that Ironclad will start with
         return __result;
     }
 }

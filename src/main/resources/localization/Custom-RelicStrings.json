@@ -3,13 +3,13 @@
     "NAME": "Gremlin's Dice",
     "FLAVOR": "A dice covered in dried raspberry jam.",
     "DESCRIPTIONS":[
-      "At the end of combat, apply one of these random effects:...",
-      " NL Raise your Max HP by 4.",
-      " NL Lose 4 Max HP.",
-      " NL Gain 15 Gold.",
-      " NL Lose 15 Gold.",
-      " NL Upgrade a random card.",
-      " NL Gain a random curse."
+      "At the end of combat, apply one of these effects:",
+      " NL Raise your Max HP by 4,",
+      " lose 4 Max HP,",
+      " gain 15 Gold,",
+      " lose 15 Gold,",
+      " upgrade a random card or",
+      " gain a random curse."
     ]
   }
 }

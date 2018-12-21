@@ -1,7 +1,7 @@
 package Pandatron76_StSMod;
 
 import basemod.BaseMod;
-import basemod.ModLabeledToggleButton;
+import basemod.ModLabel;
 import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditRelicsSubscriber;
@@ -12,7 +12,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 
 import java.nio.charset.StandardCharsets;
@@ -32,8 +31,8 @@ public class GremlinsDiceMod implements
     public static final String AUTHOR = "Pandatron76";
     public static final String DESCRIPTION = "v1.0.0\n A dice covered in dried raspberry jam.";
 
-    public static final float BUTTON_ENABLE_X = 350.0f;
-    public static final float BUTTON_ENABLE_Y = 750.0f;
+    public static final float TBD_LABEL_X = 350.0f;
+    public static final float TBD_LABEL_Y = 750.0f;
 
     public static final String ASSETS_FOLDER = "img";
     public static final String BADGE_IMG = "/badges/GremlinsDiceBadge.png";
@@ -61,29 +60,25 @@ public class GremlinsDiceMod implements
         String relicStrings = Gdx.files.internal("localization/Custom-RelicStrings.json").readString(
                 String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
-
     }
+
 
     @Override
     public void receivePostInitialize() {
 
         Texture badgeTexture = new Texture(makePath(BADGE_IMG));
         ModPanel settingsPanel = new ModPanel();
+        ModLabel TBD_Label = new ModLabel("Nothing here at this time. Enjoy the mod :)",
+                TBD_LABEL_X,
+                TBD_LABEL_Y,
+                settingsPanel, me -> {});
 
-        ModLabeledToggleButton enableSTSMod_ConfirmPopup = new ModLabeledToggleButton(
-                "Present the user with a confirmation prompt before resting",
-                BUTTON_ENABLE_X, BUTTON_ENABLE_Y, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                RestConfirmPopupFlag, settingsPanel, (label) -> {}, (button) -> {
-            setBoolean(button.enabled);
-        });
-
-        settingsPanel.addUIElement(enableSTSMod_ConfirmPopup);
+        settingsPanel.addUIElement(TBD_Label);
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION , settingsPanel);
 
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
-
     }
 
     /**
@@ -104,11 +99,5 @@ public class GremlinsDiceMod implements
     private static boolean hasExtension(String filename) {
         return filename.lastIndexOf('.') > 0;
     }
-
-    private void setBoolean(Boolean bool){
-        RestConfirmPopupFlag = bool;
-    }
-
-
 
 }
