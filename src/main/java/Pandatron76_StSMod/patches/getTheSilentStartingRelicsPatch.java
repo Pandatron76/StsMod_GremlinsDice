@@ -16,7 +16,7 @@ public class getTheSilentStartingRelicsPatch {
         __result.clear();
         // Add the custom relic 'Gremlin's Dice' to the starting relics
         __result.add(GremlinsDice.ID);
-        // Remove the 'Gremlin's DIce' from the relic tracker
+        // Remove the 'Gremlin's Dice' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
 
         //Remove the 'Ring of the Snake' from the relic tracker

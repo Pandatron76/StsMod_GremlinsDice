@@ -23,7 +23,7 @@ import java.util.List;
 
 public class GremlinsDice extends CustomRelic {
 
-    public static final String ID = "GremlinsDice";
+    public static final String ID = "GremlinsDice:GremlinsDice";
     public static final String IMG = "img/custom_relics/GremlinsDice.png";
     public static final String IMG_OUTLINE = "img/custom_relics/outline/GremlinsDice.png";
     public static final int MAX_HP_SHIFT = 5;
