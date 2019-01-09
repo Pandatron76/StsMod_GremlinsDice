@@ -4,7 +4,7 @@
   "author_list": ["Pandatron76"],
   "description": "A dice dropped by a cheery gremlin. :)",
   "version": "0.1.0",
-  "sts_version": "11-08-2018",
+  "sts_version": "12-20-2018",
   "mts_version": "3.6.0",
   "dependencies": ["basemod"]
 }
