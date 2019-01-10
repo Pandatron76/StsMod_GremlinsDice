@@ -57,7 +57,7 @@ public class GremlinsDiceMod implements
 
     @Override
     public void receiveEditStrings() {
-        String relicStrings = Gdx.files.internal("localization/Custom-RelicStrings.json").readString(
+        String relicStrings = Gdx.files.internal("localization/GremlinsDice-RelicStrings.json").readString(
                 String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
     }
