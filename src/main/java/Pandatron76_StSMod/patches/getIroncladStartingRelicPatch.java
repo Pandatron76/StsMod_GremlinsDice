@@ -12,16 +12,17 @@ import java.util.ArrayList;
 public class getIroncladStartingRelicPatch {
 
     public static ArrayList<String> Postfix(ArrayList<String> __result, Ironclad __instance) {
-        // Clear out the original relics
-        __result.clear();
+        // Remove Burning Blood from the starting relics
+        __result.remove("Burning Blood");
+
         // Add the custom relic 'Gremlin's Dice' to the starting relics
         __result.add(GremlinsDice.ID);
         // Remove the 'Gremlin's Dice' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
 
-        //Remove the 'Burning Blood' from the relic tracker
+        // Remove the 'Burning Blood' from the relic tracker
         UnlockTracker.markRelicAsSeen("Burning Blood");
-        //Return the relics that Ironclad will start with
+        // Return the relics that Ironclad will start with
         return __result;
     }
 }

@@ -12,16 +12,16 @@ import java.util.ArrayList;
 public class getTheSilentStartingRelicsPatch {
 
     public static ArrayList<String> Postfix(ArrayList<String> __result, TheSilent __instance) {
-        // Clear out the original relics
-        __result.clear();
+        // Remove Ring of the Snake from the starting relics
+        __result.remove("Ring of the Snake");
         // Add the custom relic 'Gremlin's Dice' to the starting relics
         __result.add(GremlinsDice.ID);
         // Remove the 'Gremlin's Dice' from the relic tracker
         UnlockTracker.markRelicAsSeen(GremlinsDice.ID);
 
-        //Remove the 'Ring of the Snake' from the relic tracker
+        // Remove the 'Ring of the Snake' from the relic tracker
         UnlockTracker.markRelicAsSeen("Ring of the Snake");
-        //Return the relics that Ironclad will start with
+        // Return the relics that TheSilent will start with
         return __result;
     }
 }
